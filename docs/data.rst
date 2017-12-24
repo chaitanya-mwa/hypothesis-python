@@ -68,7 +68,7 @@ e.g.:
 .. doctest::
 
     >>> lists(integers()).map(sorted).example()
-    [-158104205405429173199472404790070005365, -131418136966037518992825706738877085689, -49279168042092131242764306881569217089, 2564476464308589627769617001898573635]
+    [-8668, -246, 167, 17236, 18879, 21129]
 
 Note that many things that you might use mapping for can also be done with
 :func:`~hypothesis.strategies.builds`.
@@ -85,9 +85,9 @@ example of ``s`` such that ``f(example)`` is truthy.
 .. doctest::
 
     >>> integers().filter(lambda x: x > 11).example()
-    87034457550488036879331335314643907276
+    28829
     >>> integers().filter(lambda x: x > 11).example()
-    145321388071838806577381808280858991039
+    1411470286779361696
 
 It's important to note that ``filter`` isn't magic and if your condition is too
 hard to satisfy then this can fail:
@@ -110,7 +110,7 @@ you wanted pairs of integers (x,y) such that x < y you could do the following:
 .. doctest::
 
     >>> tuples(integers(), integers()).map(sorted).filter(lambda x: x[0] < x[1]).example()
-    [-145066798798423346485767563193971626126, -19139012562996970506504843426153630262]
+    [-25, 25481]
 
 .. _flatmap:
 
@@ -253,7 +253,7 @@ accept all the others in the expected order. Defaults are preserved.
     >>> list_and_index()
     list_and_index()
     >>> list_and_index().example()
-    ([-57328788235238539257894870261848707608], 0)
+    ([-9829, -413, -131710781005500226145618990421637968033, 100, 18313], 1)
 
     >>> list_and_index(booleans())
     list_and_index(elements=booleans())
