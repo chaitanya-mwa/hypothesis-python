@@ -255,10 +255,9 @@ class Sampler(object):
         self.table = []
         self.extras = []
         self.acceptance = []
-        total = sum(weights)
-        n = len(weights)
+        multiplier = max(1 / w for w in weights if w > 0)
         for i, x in enumerate(weights):
-            whole_occurrences = floor(x * n / total)
+            whole_occurrences = floor(x * multiplier)
             acceptance = x - whole_occurrences
             self.acceptance.append(acceptance)
             for _ in range(whole_occurrences):
