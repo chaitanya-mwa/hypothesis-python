@@ -180,30 +180,31 @@ returns a new strategy for it. So for example:
     >>> json = recursive(none() | booleans() | floats() | text(printable),
     ... lambda children: lists(children) | dictionaries(text(printable), children))
     >>> pprint(json.example())
-    {'': 'wkP!4',
-     '\nLdy': None,
-     '"uHuds:8a{h\\:694K~{mY>a1yA:#CmDYb': {},
-     '#1J1': [')gnP',
-              inf,
-              ['6', 11881275561.716116, "v'A?qyp_sB\n$62g", ''],
-              -1e-05,
-              'aF\rl',
-              [-2.599459969184803e+250, True, True, None],
-              [True,
-               '9qP\x0bnUJH5',
-               3.0741121405774857e-131,
-               None,
-               '',
-               -inf,
-               'L&',
-               1.5,
-               False,
-               None]],
-     'cx.': None}
+    {'\nLdy': None,
+     '"uHuds:8a{h\\:694K~{mY>a1yA:#CmDYb': [None,
+                                            '\nv\\kP!4',
+                                            'cx.',
+                                            None,
+                                            '\x0cJ1',
+                                            '',
+                                            -5.466339056060792e+16,
+                                            'P',
+                                            None,
+                                            False,
+                                            -inf,
+                                            'la)'],
+     'C\rG': ['F\rl', '(vP \rV='],
+     'OzM;': {'': "sQfN'h`(n",
+              '\r/\x0cKNkU': False,
+              '6x:R1*34UY': 'd$4BbG9<6=h',
+              'N2mM?RM': -3.344293066874477e-76,
+              'oYnWGy_^`bBHLC!+G': -1.5},
+     'fB%9qP\x0bnUJH5': '9S/"',
+     "jv'A?qyp_sB\n$62g": {}}
     >>> pprint(json.example())
-    [5.321430774293539e+16, [], 1.1045114769709281e-125]
+    [[], True]
     >>> pprint(json.example())
-    {'a': []}
+    {'': ['r', None], '6~': 5.568636662423236e-176, "S'VA!": [False, None], 'a': {}}
 
 That is, we start with our leaf data and then we augment it by allowing lists and dictionaries of anything we can generate as JSON data.
 
@@ -215,9 +216,9 @@ we wanted to only generate really small JSON we could do this as:
 
     >>> small_lists = recursive(booleans(), lists, max_leaves=5)
     >>> small_lists.example()
-    True
+    [True, True, False]
     >>> small_lists.example()
-    [False, False, True, True, True]
+    [True, True]
     >>> small_lists.example()
     True
 
